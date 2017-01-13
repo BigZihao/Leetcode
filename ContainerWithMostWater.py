@@ -1,4 +1,4 @@
-# Well, the key is to prove you will the result every time you move the small node 
+# Well, the key is to prove you will get the max every time you move the small node 
 
 class Solution(object):
     def maxArea(self, height):

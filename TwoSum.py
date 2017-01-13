@@ -1,3 +1,7 @@
+## O(n), only loop the list once
+
+
+
 class Solution(object):
     def twoSum(self, nums, target):
         """

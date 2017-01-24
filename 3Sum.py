@@ -1,3 +1,5 @@
+#sort the list so that we only need to loop the list once later
+
 class Solution(object):
     def threeSum(self, nums):
         """

@@ -1,5 +1,8 @@
 
 
+## time O(N^2) space O(1)
+## insertion sort take O(N^2) time, even though it's slightly better than selection sort
+
 
 def insertionSortList(self, head):
 	cur = dummy = ListNode(0)

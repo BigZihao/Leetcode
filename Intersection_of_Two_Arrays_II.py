@@ -1,5 +1,8 @@
 ##Intersection of Two Arrays II
 
+
+## option 1: using dictionary
+
 def intersect(nums1, nums2):
 
 	counts = {}
@@ -17,10 +20,13 @@ def intersect(nums1, nums2):
 
 from collections import Counter 
 
+
 def intersect2(nums1, nums2):
 	a, b = map(Counter,(nums1, nums2))
 	return list((a & b).elements())
 
+
+## option 3: using sorted array, the idea is similar to merge in mergesort
 
 def intersect3(nums1, nums2):
 	nums1, nums2 = sorted(nums1), sorted(nums2)

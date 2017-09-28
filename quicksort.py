@@ -38,6 +38,8 @@ def partition(alist, left, right):
 	return rightmark
 
 
+## option 2: generator
+
 def qsort(alist):
 	if len(alist)<1:
 		pass
@@ -54,6 +56,7 @@ def first_n(seq, n):
 	return [next(it, None) for _ in range(n)]
 
 
+## Option 3 list generator
 
 def quicksort3(alist):
 	if len(alist) <= 1:

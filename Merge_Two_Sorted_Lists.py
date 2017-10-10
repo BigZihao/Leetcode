@@ -20,6 +20,7 @@ def mergeTwoLists(self, l1, l2):
 	return dummy.next
 
 
+<<<<<<< HEAD
 
 
 ## compared with merge array, we can only go right through list
@@ -47,3 +48,19 @@ def merge(self, nums1, m, nums2, n):
 ## if n<m it like insert l2 into l1, then the rest of l1 just stay the place
 ## if n>m, the rest of l2 has to be in the very begining, since both are already sorted
         
+=======
+### merge array is backwards while merge list is forward
+
+
+
+def merge(self, nums1, m, nums2, n):
+        while m > 0 and n > 0:
+            if nums1[m-1] >= nums2[n-1]:
+                nums1[m+n-1] = nums1[m-1]
+                m -= 1
+            else:
+                nums1[m+n-1] = nums2[n-1]
+                n -= 1
+        if n > 0:
+            nums1[:n] = nums2[:n]
+>>>>>>> 6206ce33895453121880fd9936004f6635472c56

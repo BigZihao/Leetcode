@@ -15,7 +15,6 @@ def topKFrequent(self, nums, k):
 	return sorted_dict[:k]
 
 
-
 ## heap queue
 
 ## time complexity is O(n*log(k))

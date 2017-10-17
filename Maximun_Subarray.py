@@ -31,7 +31,7 @@ class Solution(object):
 		return max(nums)
 
 
-	def maxSubArray4( elf, nums):
+	def maxSubArray4(self, nums):
 		for i in range(1, len(nums)):
 			if nums[i-1]>0:
 				nums[i]+=nums[i-1]
@@ -43,3 +43,7 @@ class Solution(object):
 if __name__ == "__main__":
 	print( Solution().maxSubArray([-2,1,-3,4,-1,2,1,-5,4]) )
 	print( Solution().maxSubArray2([-2,1,-3,4,-1,2,1,-5,4]) )
+	print( Solution().maxSubArray3([-2,1,-3,4,-1,2,1,-5,4]) )
+	print( Solution().maxSubArray4([-2,1,-3,4,-1,2,1,-5,4]) )
+
+

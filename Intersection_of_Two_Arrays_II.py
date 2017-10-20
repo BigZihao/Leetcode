@@ -45,6 +45,19 @@ def intersect3(nums1, nums2):
 		except IndexError:
 			break
 	return res
+	
+
+def intersect4(nums1, nums2):
+	dict1 = dict()
+	for i in nums1:
+		dict[i] = dict.get(i, 0) +1
+	ret= []
+	for i in nums2:
+		if i in dict1 and dict1[i]>0:
+			ret.append(i)
+			dict1[i]-=1
+	return ret
+
 
 
 

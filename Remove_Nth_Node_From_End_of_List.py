@@ -20,3 +20,16 @@ class Solution(object):
         slow.next = slow.next.next
         return dummy.next
 
+
+    def removeNthFromEnd(self, head, n):
+        slow = fast = self
+        self.next = head
+        while fast.next:
+            if n:
+                n-=1
+            else:
+                slow = slow.next
+            fast = fast.next
+        slow.next = slow.next.next
+        return self.next
+

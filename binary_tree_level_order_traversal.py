@@ -1,4 +1,42 @@
 class Solution(object):
+	## BFS using queue
+	def levelOrder6(self, root):
+		results = []
+		if not root:
+			return results
+		q = [root]
+		while q:
+			new_q = []
+			results.append([n.val for n in q])
+			for node in q:
+				if node.left:
+					new_q.append(node.left)
+				if node.right:
+					new_q.append(node.right)
+			q = new_q
+		return results
+
+## DFS but keep tracking of the level
+    def levelOrder7(self, root):
+    	stack = [(root, 0)]
+    	res = []
+    	while stack:
+    		node, level = stack.pop()
+    		if node:
+    			if len(res)< level + 1:
+    				res.insert(level, [])
+    			res[level].append(node.val)
+    			if node.right:
+    				stack.append((node.right, level+1))
+    			if node.left:
+    				stack.append((node.left, level +1))
+    	return res
+
+
+
+
+
+
 	def levelOrder(self, root):
 		ans, level = [], [root]
 		while root and level:
@@ -16,7 +54,7 @@ class Solution(object):
 			temp = []
 			for node in level:
 				temp.extend([node.left, node.right])
-			level = [leat for leaf in temp if leaf]
+			level = [leaf for leaf in temp if leaf]
 		return ans
 
 	def levelOrder3(self, root):
@@ -45,3 +83,19 @@ class Solution(object):
 				if node.right: record.append(node.right)
 			if record: q.append(record)
 		return [[x.val for x  in level] for level in q]
+
+	def preorder(self, root, level, res):
+		if root:
+			if len(res) < level+1:
+				res.append([])
+			res[level].append(root.val)
+			self.preorder(root.left, level+1, res)
+			self.preorder(root.right, level+1, res)
+
+	def levelOrder5(self, root):
+		res= []
+		self.preorder(root, 0, res)
+		return res
+
+
+

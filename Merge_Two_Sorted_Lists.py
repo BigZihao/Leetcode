@@ -1,9 +1,8 @@
 
 ## O(n)  O(1)
-
+## iteratively
 def mergeTwoLists(self, l1, l2):
-	dummy = ListNode(0)
-	tmp = dummy
+	tmp = dummy = ListNode(0)
 	## don't know the first node, then set it as dummy, eventually we return dummy.next
 	while l1 != None and L2 != None:
 		if l1.val < l2.val:
@@ -13,15 +12,42 @@ def mergeTwoLists(self, l1, l2):
 			tmp.next = l2
 			l2 = l2.next
 		tmp = tmp.next   ## tmp node is keep moving right
-	if l1 != None:
-		tmp.next = l1
-	else:
-		tmp.next = l2
+    tmp.next = l1 or l2
 	return dummy.next
 
 
-<<<<<<< HEAD
 
+## recursively
+def mergeTwoLists2(self, l1, l2):
+    if not l1 or not l2:
+        return l1 or l2
+    if l1.val < l2.val:
+        l1.next = self.mergeTwoLists2(l1.next, l2)
+        return l1
+    else:
+        l2.next = self.mergeTwoLists2(l1, l2.next)
+        return l2
+
+
+## in-place, iteratively
+
+def mergeTwoLists(self, l1, l2):
+    if None in (l1, l2):
+        return l1 or l2
+    dummy = cur = ListNode(0)
+    dummy.next = l1
+    while l1 and l2:
+        if l1.val < l2.val:
+            l1 = l1.next
+        else:
+            nxt = cur.next
+            cur.next = l2
+            tmp = l2.next
+            l2.next = nxt
+            l2 = tmp
+        cur = cur.next
+    cur.next = l1 or l2
+    return dummy.next
 
 ## compared with merge array, we can only go right through list
 
@@ -47,8 +73,6 @@ def merge(self, nums1, m, nums2, n):
 
 ## if n<m it like insert l2 into l1, then the rest of l1 just stay the place
 ## if n>m, the rest of l2 has to be in the very begining, since both are already sorted
-        
-=======
 ### merge array is backwards while merge list is forward
 
 
@@ -63,4 +87,3 @@ def merge(self, nums1, m, nums2, n):
                 n -= 1
         if n > 0:
             nums1[:n] = nums2[:n]
->>>>>>> 6206ce33895453121880fd9936004f6635472c56

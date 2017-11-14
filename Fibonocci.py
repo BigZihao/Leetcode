@@ -52,12 +52,11 @@ def fib2(n):
 
 
 
-## Bottom-up O(n) space
-
+## Bottom-up 
+## O(n) time and O(1) space 
 def fib3(n):
 	a, b = 0, 1
 	for i in range(0, n):
 		a, b = b, a+b
 	return a
-
 

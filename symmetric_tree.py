@@ -23,6 +23,7 @@ class Solution(object):
 
 
 	## Non-recursion
+	## stack DFS
 	def isSymmetric(self, root):
 		if not root:
 			return True

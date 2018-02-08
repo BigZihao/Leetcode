@@ -2,14 +2,13 @@
 
 from copy import deepcopy as copy
 
-def imageSmoother(self, M):
+def imageSmoother( M):
 	x_len = len(M)
 	y_len = len(M[0]) if x_len else 0
-	res = copy(M)
+	res = [row[:] for row in M]
 	for x in range(x_len):
 	    for y in range(y_len):
 	        neighbors = [
-
 	        M[_x][_y]
 	        for _x in (x-1, x, x+1)
 	        for _y in (y-1, y, y+1)

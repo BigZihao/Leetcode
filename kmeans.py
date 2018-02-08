@@ -109,7 +109,7 @@ class KMeansClassifier():
 
 
 if __name__=="__main__":
-	k = 4
+	k = 3
 	clf = KMeansClassifier(k)
 	data_X = clf.loadDataset("C:/Users/zihao.zhang/Desktop/kmenastestdata.txt")
 	clf.fit(data_X)

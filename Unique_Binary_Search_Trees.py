@@ -25,7 +25,8 @@ def numTrees(self, n):
 
 
 ## what about some math
+# Catalan Number  (2n)!/((n+1)!*n!)  
 
 def numTrees(self, n):
-	return math.fatorial(2/n)/(math.factorial(n)*math.factorial(n+1))
+	return math.fatorial(2*n)/(math.factorial(n)*math.factorial(n+1))
 

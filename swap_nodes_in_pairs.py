@@ -5,17 +5,19 @@ class Solution(object):
 		:rtype: ListNode
 		"""
 
-		dummy = p = ListNode(0)
+		dummy = ListNode(-1)
 		dummy.next = head
-		while head and head.next:
-			tmp = head.next
-			head.next = tmp.next
-			tmp.next = head
-			p.next = tmp
-			head = head.next
-			p = tmp.next
+		prev, cur = dummy, head
+
+		while cur and cur.next:
+			nex = cur.next.next
+			prev.next = cur.next
+			tmp = cur.next.next
+			cur.next.next = cur
+			cur.next = tmp
+			prev = cur 
+			cur = nex
 		return dummy.next
-    ## recursion
 
 	def swapPairs(self, head):
 		if not head or nor head.next:

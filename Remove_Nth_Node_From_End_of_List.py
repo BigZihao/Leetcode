@@ -21,7 +21,7 @@ class Solution(object):
         return dummy.next
 
 
-    def removeNthFromEnd(self, head, n):
+    def removeNthFromEnd2(self, head, n):
         slow = fast = self
         self.next = head
         while fast.next:

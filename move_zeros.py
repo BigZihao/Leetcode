@@ -8,5 +8,6 @@ class Solution(object):
 				zero+=1
 		return nums
 
+
 if __name__ == "__main__":
 	print(Solution().moveZeros([1,2,0,5,6,9,0,6,5]))

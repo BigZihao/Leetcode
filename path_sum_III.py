@@ -25,6 +25,7 @@ class Solution(object):
 		targets = [t-node.val for t in targets]+[origin]
 		return hit + self.helper(node.left, origin, targets) + self.helper(node.right, origin, targets)
 
+<<<<<<< HEAD
 
 
 
@@ -77,3 +78,18 @@ class Solution(object):
         self.result = 0
         self.helper(root, sum, 0, {0:1})
         return self.result
+=======
+    def pathSum3(self, root, target):
+    	self.count = 0
+    	preDict = {0:1}
+    	def dfs(p, target, pathSum, preDict):
+    		if p:
+    			pathSum+=p.val
+    			self.count+=preDict.get(pathSum - target, 0)
+    			preDict[pathSum] = preDict.get(pathSum, 0)+1
+    			dfs(p.left, target, pathSum, preDict)
+    			dfs(p.right, target, pathSum, preDict)
+    			preDict[pathSum]-=1
+    	dfs(root, target, 0, preDict)
+    	return self.count
+>>>>>>> 451fd64b8af546b9c06c436e81da0a472ec36498

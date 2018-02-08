@@ -19,4 +19,4 @@ def findMaxAverage(self, A, K):
 	for i in range(len(nums) - K):
 		curSum = curSum + nums[i+K] - nums[i]
 		maxSum = max(maxSum, curSum)
-	return maxSum/fload(K)
+	return maxSum/float(K)

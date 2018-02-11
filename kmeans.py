@@ -111,7 +111,7 @@ class KMeansClassifier():
 if __name__=="__main__":
 	k = 3
 	clf = KMeansClassifier(k)
-	data_X = clf.loadDataset("C:/Users/zihao.zhang/Desktop/kmenastestdata.txt")
+	data_X = clf.loadDataset("/Users/zihaozhang/Desktop/Leetcode/kmenastestdata.txt")
 	clf.fit(data_X)
 	cents = clf._centroids
 	labels = clf._labels

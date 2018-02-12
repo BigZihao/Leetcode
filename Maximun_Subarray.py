@@ -19,7 +19,8 @@ class Solution(object):
 			return 0
 		curSum = maxSum = nums[0]
 		for num in nums[1:]:
-			curSum = max(curSum + num, num)
+			curSum = max(curSum + num, num)   # eiterh start a new subarry or continue the previous subarray
+			
 			maxSum = max(maxSum, curSum)
 		return maxSum
 

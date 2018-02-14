@@ -56,8 +56,10 @@ class KMeansClassifier():
 		self._clusterAssment = np.zeros((n, 2))
 		if self._initCent == 'random':
 			self._centroids = self._randCent(data_X, self._k)
+			## initate the starting point
 
 		clusterChanged = True
+		## step 1, find the center index for each data point
 		for _ in range(self._max_iter):
 			clusterChanged = False
 			# loop over each data point
@@ -77,6 +79,9 @@ class KMeansClassifier():
 					self._clusterAssment[i, :] = minIndex, minDist**2
 			if not clusterChanged:
 				break
+				## exit the loop if the centroid doesn't change at all
+
+			## step 2, update the new centroid
 			for i in range(self._k):
 				index_all = self._clusterAssment[:, 0]
 				value = np.nonzero(index_all == i)

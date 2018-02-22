@@ -17,19 +17,39 @@ class Solution():
 #(1) the stack length is already k 
 #(2) the current value is too large for the rest slots to fit in since we are using ascending order to 
 # make sure the uniqueness of each combination.
-    def combine3(self, n, k):
-    	ans = []
-    	stack = []
-    	x = 1
-    	while True:
-    		l = len(stack)
-    		if l == k:
-    			ans.append(stack[:])
-    		if l == k or x> n-k+l+1:
-    			if not stack:
-    				return ans
-    			x = stack.pop() + 1
-    		else:
-    			stack.append()
-    			x+=1
-    	
+	def combine3(self, n, k):
+		ans = []
+		stack = []
+		x = 1
+		while True:
+			l = len(stack)
+			if l == k:
+				ans.append(stack[:])
+			if l == k or x> n-k+l+1:
+				if not stack:
+					return ans
+				x = stack.pop() + 1
+			else:
+				stack.append(x)
+				x+=1
+
+
+	def combine4(self, n, k):
+		res = []
+		## the index is to eliminate the duplicate
+		self.dfs(range(1, n+1), k, 0, [], res)
+		return res
+
+	def dfs(self, nums, k, index, path, res):
+		## at the end of the tree, just add 
+		if k == 0:
+			res.append(path)
+			return
+		for i in range(index, len(nums)):
+			self.dfs(nums, k-1, i+1, path+[nums[i]], res)
+
+if __name__ == "__main__":
+	print(Solution().combine1(5, 2))
+	print(Solution().combine2(5, 2))
+	print(Solution().combine3(5, 2))
+	print(Solution().combine4(5, 2))

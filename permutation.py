@@ -10,9 +10,11 @@ class Solution(object):
     # recursion
     # Take any number as the first number and append any permutation of the other numbers.
     def permute(self, nums):
-        return [[n] + p
+        res = [[n] + p
             for i, n in enumerate(nums)
             for p in self.permute(nums[:i] + nums[i+1:])] or [[]]
+        print(res)
+        return res
 
     def permute1(self, nums):
         if len(nums) == 0: return []
@@ -39,8 +41,12 @@ class Solution(object):
     def dfs(self, nums, path, res):
         if not nums:
             res.append(path)
+            print(res)
         for i in range(len(nums)):
             self.dfs(nums[:i] + nums[i+1:], path + [nums[i]], res)
+
+## first time: i == 0 pint to 1, nums = [2, 3], recursively call dfs again, gives i == 0  point to 2, then nums = [3]
+            
 
     # iteration
     def permute4(self, nums):
@@ -78,11 +84,12 @@ class Solution(object):
 from functools import reduce
 if __name__ == "__main__":
     print(Solution().permute([1,2,3]))
-    print(Solution().permute2([1,2,3]))
+    print('________')
+##    print(Solution().permute2([1,2,3]))
     print(Solution().permute3([1,2,3]))
-    print(Solution().permute4([1,2,3]))
-    print(Solution().permute5([1,2,3]))
-    print(Solution().permute6([1,2,3]))
+    #print(Solution().permute4([1,2,3]))
+ #   print(Solution().permute5([1,2,3]))
+ #   print(Solution().permute6([1,2,3]))
 
 
 

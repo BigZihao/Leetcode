@@ -22,5 +22,18 @@ def topKFrequent(self, nums, k):
 import collections
 def topKFrequent(self, nums, k):
 	num_count = collections.Counter(nums)
-	return heapq.nlargest(k, num_count, num_count.get)
+	return heapq.nlargest(k, num_count, key = num_count.get)
 
+
+### well for large dataset, sort the dictionary takes times. heap will be better data structure
+## insertion: insert at the bottom and bubble it up 
+## the implementation can be just a array instead of node structure
+
+class Heap(object):
+	def __init__(self, size):
+		self.num = 0
+		self.size = 0
+		self.value = [None] * size
+
+	def __repr__(self):
+		return '<Thing: %s>' % (self.data,)

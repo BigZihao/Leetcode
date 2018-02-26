@@ -11,6 +11,9 @@ class Solution(object):
 	def isIsomorphic2(self, s, t):
 		return len(set(s)) == len(set(zip(s,t))) == len(set(t))
 
+	def isIsomorphic3(self, s, t):
+		
+
 
 if __name__ == "__main__":
 	print(Solution().isIsomorphic1("egg","add"))

@@ -1,5 +1,8 @@
 
 class Solution(object):
+
+# 时间复杂度: O(n^2 ~ n^3) 空间复杂度 O(n)
+
 	def wordBreak(self, s, wordDict):
 		"""
 		:type s: str
@@ -35,3 +38,4 @@ class Solution(object):
 
 if __name__ == "__main__":
 	assert Solution().wordBreak3("leetcode", {"leet", "code"}) == True
+

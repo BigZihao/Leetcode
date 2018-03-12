@@ -20,3 +20,9 @@ def findMaxAverage(self, A, K):
 		curSum = curSum + nums[i+K] - nums[i]
 		maxSum = max(maxSum, curSum)
 	return maxSum/float(K)
+
+
+
+
+The Maximum_Average_Subarray_I and longest_continues_increasing sebsequence are the same questions
+use a temp variable to store the sliding windows, then use the final variable to store results 

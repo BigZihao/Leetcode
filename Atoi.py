@@ -13,10 +13,10 @@ def myAtoi(self, str):
 	elif str[i] == '-':
 		i+=1
 		sign=-1
-	for i in range(i, length):
-		if str[i] < '0' or str[i] > '9':
+	for j in range(i, length):
+		if str[j] < '0' or str[j] > '9':
 			break
-		ret = ret * 10 + int(str[i])
+		ret = ret * 10 + int(str[j])
 		if ret > sys.maxint:
 			break
 	ret*= sign

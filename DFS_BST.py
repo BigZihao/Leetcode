@@ -6,6 +6,9 @@
 
 ## binary tree path
 
+## binary search tree
+
+
 def binaryTreePaths(self, root):
 	if not root:
 		return []

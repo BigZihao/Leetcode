@@ -15,6 +15,8 @@ class Solution(object):
 		res = sorted(d, key = lambda word: (-d[word], word))
 		## sort by both the order of frequency and alphabetical order using the tuple 
 		return res[:k]
+
+		
     from heapq import *
 	def topFrequentWord3(self, words, k):
 		d = {}

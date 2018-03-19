@@ -22,6 +22,7 @@ def merge(left, right):
 
 
 
+
 def mergeSort2(alist):
     print("Splitting ",alist)
     if len(alist)>1:

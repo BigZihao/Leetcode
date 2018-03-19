@@ -1,4 +1,8 @@
 class Solution(object):
+	## Solution 1: Reversed first half == Second half?
+
+	## Phase 1: Reverse the first half while finding the middle.
+	## Phase 2: Compare the reversed first half with the second half.
 	def isPalindrome(self, head):
 		rev = None
 		slow = fast = head

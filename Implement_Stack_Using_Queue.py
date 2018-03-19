@@ -16,3 +16,5 @@ class Stack(object):
 
 	def empty(self):
 		return not len(self._queue)
+
+

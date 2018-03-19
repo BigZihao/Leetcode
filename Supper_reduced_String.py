@@ -18,3 +18,4 @@ def super_reduce(strings):
 s = input().strip()
 result = super_reduced_string(s)
 print(result)
+

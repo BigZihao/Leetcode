@@ -12,5 +12,7 @@ class Solution(object):
 				return False
 		return stack == []
 
+	def isValid2(self, s):
+		
 if __name__ == "__main__":
 	print(Solution().isValid("["))

@@ -10,3 +10,10 @@ def maxProfit(self, prices):
 		low_price = min(prices[i], low_price)
 		max_profit = max(max_profit, prices[i] - low_price)
 	return max_profit
+
+
+## reduce this problem to max_subarray sum
+
+def maxProfit(self, prices):
+	for i in range(len(prices)):
+		

@@ -1,17 +1,14 @@
 class Solution(object):
 	def longestUnivaluePath(self, root):
-		longest = [0]
-		def traverse(node):
+		self.longest = 0
+		def traverse(node, parent_val):
 			if not node:
 				return 0
-			left_len, right_len = traverse(node.left), traverse(node.right)
-			left = (left_len + 1) if node.left and node.left.val == node.val else 0
-			right = (right_len + 1) if node.right and node.right.val == node.val else 0
-			longest[0] = max(longest[0], left + right)
-			return max(left, right)
-		traverse(root)
-		return longest[0]
-
+			left, right = traverse(node.left, node.val) , traverse(node.right, node.val)
+			self.longest = max(self.longest, left + right)
+			return 1 + max(left, right) if node.val == parent_val else 0
+		traverse(root, None)
+		return self.longest
 
 	def longestUnivaluePath2(self, root):
 		def dfs(root, res):

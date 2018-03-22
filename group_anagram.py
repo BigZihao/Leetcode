@@ -2,14 +2,11 @@ class Solution(object):
 	def groupAnagram(self, strs):
 		"""
 		"""
-		dic = {}
-		for s in strs:
-			s = ''.join(sorted(s))
-			if s in dic:
-				dic[s].append(string)
-			else:
-				dic[s] = [string]
-		return [dic[x] for x in dic]
+        dic = {}
+        for string in strs:
+            s = ''.join(sorted(string))
+            dic[s] = dic.get(s, []) + [string]
+        return [dic[x] for x in dic]
 
 	def groupAnagram(self, strs):
 		d = {}

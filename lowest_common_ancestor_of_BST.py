@@ -9,6 +9,15 @@ class Solution(object):
 			else:
 				return root
 
+	def lowestCommonAncestor(self, root, p, q):
+		while (root.val-p.val)*(root.val - q.val)>0:
+			if root.val>max(p.val, q.val):
+				root = root.left
+			else:
+				root = root.right
+		return root
+
+
 	## recursion
 	def lowestCommonAncestor2(self, root, p, q):
 		if (p.val <= root.val <= q.val or q.val <= root.val <= p.val): return root.val

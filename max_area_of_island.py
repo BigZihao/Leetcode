@@ -4,7 +4,7 @@ class Solutio(object):
 
         def dfs(i, j):
             if 0 <= i < m and 0 <= j < n and grid[i][j]:
-            	## if it has number, it is an island, then use DFS to find the whole Island 
+                ## if it has number, it is an island, then use DFS to find the whole Island 
                 grid[i][j] = 0
                 return 1 + dfs(i-1, j) + dfs(i, j+1) + dfs(i+1, j) + dfs(i, j-1)
             return 0   ### for other exit situation!!

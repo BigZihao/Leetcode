@@ -14,6 +14,7 @@ class Solution(object):
 
 		return maxLength
 
+
 	def LenthOfLongestSubstring2(self, s):
 		dic, res, start,  = {}, 0, 0
 		for i, ch in enumerate(s):
@@ -25,4 +26,6 @@ class Solution(object):
 		# return should consider the last
 		# non-repeated substring
 		return max(res, len(s) - start)
-				
+
+if __name__ == "__main__":
+	assert Solution().LengthOfLongestSubstring('bbbbbbbb')==1

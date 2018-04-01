@@ -19,6 +19,7 @@ class Solution(object):
 					break 
 		return dp[n]
 
+
 	def wordBreak2(self, s, wordDict):
 		d = [False] * len(s)
 		for i in range(len(s)):
@@ -37,5 +38,5 @@ class Solution(object):
 
 
 if __name__ == "__main__":
-	assert Solution().wordBreak3("leetcode", {"leet", "code"}) == True
+	assert Solution().wordBreak("leetcode", {"leet", "code"}) == True
 

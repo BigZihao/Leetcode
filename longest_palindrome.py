@@ -1,4 +1,5 @@
-class Solution:
+class Solution():
+    ## O(n^2)   O(n)
     def longestPalindrome(self, s):
         """
         :type s: str
@@ -19,3 +20,8 @@ class Solution:
                         res = s[start:end+1]
                         maxlength = end-start+1
         return res
+
+
+
+if __name__ == "__main__":
+    assert Solution().longestPalindrome('abccbad')=='abccba'

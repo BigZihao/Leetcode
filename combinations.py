@@ -33,20 +33,26 @@ class Solution():
 				stack.append(x)
 				x+=1
 
+    def combine(self, n, k):
+        """
+        :type n: int
+        :type k: int
+        :rtype: List[List[int]]
+        """
+        res = []
+        self.dfs(xrange(1,n+1), k, 0, [], res)
+        return res
 
-	def combine4(self, n, k):
-		res = []
-		## the index is to eliminate the duplicate
-		self.dfs(range(1, n+1), k, 0, [], res)
-		return res
+    def dfs(self, nums, k, index, path, res):
+        if k > len(nums) - index + 1: return  ## to save some time. or prune search path
+        elif k == 0:
+            res.append(path)
+            return
+        for i in xrange(index, len(nums)):
+            self.dfs(nums, k-1, i+1, path+[nums[i]], res)
 
-	def dfs(self, nums, k, index, path, res):
-		## at the end of the tree, just add 
-		if k == 0:
-			res.append(path)
-			return
-		for i in range(index, len(nums)):
-			self.dfs(nums, k-1, i+1, path+[nums[i]], res)
+
+            
 
 if __name__ == "__main__":
 	print(Solution().combine1(5, 2))

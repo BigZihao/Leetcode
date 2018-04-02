@@ -1,4 +1,4 @@
-from collections import deque
+nfrom collections import deque
 
 class Solution(object):
 	def ladderLength(self, begeinword, endword, wordlist):

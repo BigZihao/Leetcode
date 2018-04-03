@@ -20,7 +20,7 @@ class Solution(object):
 		curSum = maxSum = nums[0]
 		for num in nums[1:]:
 			curSum = max(curSum + num, num)   # eiterh start a new subarry or continue the previous subarray
-			
+			## and the new start is the start of this continuous subsequence
 			maxSum = max(maxSum, curSum)
 		return maxSum
 

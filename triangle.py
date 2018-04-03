@@ -12,6 +12,7 @@ class Solution(object):
         for row in range(height-2, -1, -1):
             for j in range(row+1): ## each element in the row
                 dp[j] = triangle[row][j] + min(dp[j], dp[j+1])
+                ## the sum is going up, from lowest row add up 
         return dp[0]
 
 if __name__ == "__main__":

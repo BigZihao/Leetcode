@@ -5,8 +5,8 @@ class Solutions(object):
 		def dfs(num, string, res):
 			if num == length:
 				res.append(string)
-				return
-			for letter in dict[digits[num]]:
+				return  ## the out for backtracking
+			for letter in dict[digits[num]]: ## get all the combinations 
 				dfs(num+1, string+letter, res)
 
 		### string is the current path along the graph using DFS, once you hit the num, then store the string to res

@@ -9,13 +9,16 @@ class Solution(object):
     def dfs(self, left, right, ans, string):
         if right < left:
             return 
+
+        ## which this out condition
+        ## we reduce time complexity from O(2^n) to O(n!)
         if not left and not right:
             ans.append(string)
             return
         if left:
-            self.dfs(left - 1, right, ans, string + "(")
+            self.dfs(left - 1, right, ans, string + "(") ## used one left 
         if right:
-            self.dfs(left, right - 1, ans, string + ")")
+            self.dfs(left, right - 1, ans, string + ")")  ## used one right 
 
 
 

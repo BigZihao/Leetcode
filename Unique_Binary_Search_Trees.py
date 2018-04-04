@@ -1,7 +1,8 @@
 
 
 ## DP
-
+## f(n) = f(0)*f(n) + f(1)*f(n-1) + .... + f(n-1)*f(1) + f(n)*f(0)
+## O(1+2+...+n)=O(n^2)
 
 def numTrees(self, n):
 	"""
@@ -12,7 +13,7 @@ def numTrees(self, n):
 	count[0] = 1
 
 	for i in range(1, n + 1):
-		for j in range(0, i):
+		for j in range(0, i): ## how many left node have
 			count[i]+=count[j]*count[i-j-1]
 	return count[n]
 

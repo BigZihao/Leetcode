@@ -20,14 +20,15 @@ class Solution(object):
         self.dfs(candidates, target, 0, [], res)
         return res
 
-    def dfs(candidates, target, index, path, res):
+    def dfs(candidates, target, index, path, res): ## for permutation we don't need the index
+        if target <0:
+            return ## backtracking
         if target == 0:
             res.append(path)
             return 
-        for i in range(index, len(candidates)):
-            if candidates[i]>target:
-                break
+        for i in range(index, len(candidates)):   ### start from Index delete duplicate in res
             self.dfs(candidates, target - candidates[i], i, path + [candidates[i]], res)
+            ## use i here allow same element be used multiple times
 
 
     def combinationSum2(self, candidates, target):

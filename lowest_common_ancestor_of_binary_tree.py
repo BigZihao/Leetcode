@@ -1,7 +1,8 @@
 class Solution(object):
 	def lowestCommonAncestor(self, root, p, q):
 		stack = [root]
-		parent = {root:None}
+		parent = {root:None}  ##{child:parent}
+		## DFS to traverse the tree and find p, q and store their parents
 		while p not in parent or q not in parent:
 			node = stack.pop()
 			if node.left:
@@ -9,13 +10,13 @@ class Solution(object):
 				stack.append(node.left)
 			if node.right:
 				parent[node.right] = node
-				stakc.append(node.right)
+				stack.append(node.right)
 		ancestors = set()
 		while p:
-			ancestors.add(p)
+			ancestors.add(p) # store p's ancestor
 			p = parent[p]
 		while q not in ancestors:
-			q = parent[q]
+			q = parent[q]  ## in p's ancestor, find common ancestor that q have
 		return q
 
 	def lowestCommonAncestor2(self, root, p, q):

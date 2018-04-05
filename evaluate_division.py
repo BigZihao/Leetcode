@@ -8,30 +8,32 @@ class Solution(object):
 #Complexity is K * O(N + M) where N and M are the number of nodes and edges, and K is the number of queries. How many nodes can we have? It’s 2 * E, where E is the number of equations (2 different nodes per each equation). We can have at most E edges in the graph.
 
 #So total complexity is O(K * E), with O(E) additional space for the graph.
-
-
+        G, W  = {}, {}
+        for (A, B), V in zip(equations, values):
+            G[A], G[B] = G.get(A,[]) + [B] , G.get(B, []) + [A]
+            W[(A, B)], W[(B, A)] = V, 1.0/V
+        
         def dfs(start, end, path, paths):
-            if start == end and start in G:
-                paths[0] = path
+            if start == end and end in G:
+                paths.append(path)
                 return
             if start in vis:
                 return
-            vis.add(start)
+            vis.add(start) ## also in graph problem, cannot go back
+            if start not in G or end not in G:
+                return
             for node in G[start]:
-                dfs(node, end, path*W[start, node], paths)
-
-        G, W = collections.defaultdict(set), collections.defaultdict(float)
-
-        for (A, B), V in zip(equations, values):
-            G[A], G[B] = G[A] | {B}, G[B] | {A}
-            W[A, B], W[B, A] = V, 1.0/V
-
+                dfs(node, end, path*W[(start, node)], paths)
+        
         res = []
         for X, Y in queries:
-            paths, vis  = [-1.0], set()
+            paths, vis = [-1.0], set()
             dfs(X, Y, 1.0, paths)
-            res+=paths[0],
+            res.append(paths[-1])
         return res
+
+
+
 
     def calcEquation(self, equations, values, queries):
         quot = collections.defaultdict(dict)

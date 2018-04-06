@@ -19,8 +19,41 @@ class Solution(object):
 				root.right, root.left = reverse_tree(root.left), reverse_tree(root.right)
 			return root
 		return tuple_tree(root) == tuple_tree(reverse_tree(root))
+		
 
+	def dfs2(p1,p2):
+	    """
+	    Two pointers.
+	    p1 searches using DFS, Left-Root-Right manner.
+	    p2 searches using DFS, Right-Root-Left manner.
+	    """
+	    # Base case if both nodes are leaves
+	    if p1 == None and p2 == None:
+	        return True
+	    
+	    # Recurse if both of them are not null
+	    if p1!=None and p2!=None:
+	        # values for p1 and p2 must be same.
+	        if p1.val != p2.val:
+	            return False
+	        x = dfs2(p1.left,p2.right)
+	        y = dfs2(p1.right,p2.left)
+	        # Left of p1 is not same as right of p2 then false.
+	        # Simply perform "and" operation on x and y to enforce that. 
+	        return x and y
+	    
+	    # If only one of them is null then return False.
+	    return False
 
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if root == None:
+            return True
+        else:
+            return dfs2(root.left,root.right)
 
 	## Non-recursion
 	## stack DFS

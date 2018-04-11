@@ -25,9 +25,9 @@ class Solution(object):
         if visited[i]==1:
             return True
         visited[i]=-1
-        for j in graph.get(i,[]):
-            if not self.dfs(graph, visited, j):
-                return False
+        for j in graph.get(i,[]):                     ## **
+            if not self.dfs(graph, visited, j):       ## **
+                return False                          ## **
         visited[i]=1
         return True
 

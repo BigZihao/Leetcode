@@ -19,6 +19,8 @@ class Solution(object):
 			res+= 1
 		return res
 
+
+## DFS for the graph, so needs the visited 
 	def findCircleNum2(self, M):
 		"""
 		:type M: List[List[int]]

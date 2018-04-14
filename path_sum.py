@@ -11,7 +11,7 @@ class Solution(obejct):
 		return self.hasPathSum(root.left, sumN) or self.hasPathSum(root.right, sumN)
 
 
-    ## DFS
+    ## DFS by stack
 	def hasPathSum2(self, root, sumN):
 		if root is None:
 			return False
@@ -25,6 +25,28 @@ class Solution(obejct):
 			if node.right:
 				stack.append((node.right, _sum - node.val))
 		return False
+
+## DFS by recursion
+    def hasPathSum(self, root, sum):
+        """
+        :type root: TreeNode
+        :type sum: int
+        :rtype: bool
+        """
+        if root is None:
+            return False
+        return self.dfs(root, sum)
+    
+    def dfs(self, root, sum):
+        if root.left and root.right:
+            return self.dfs(root.left, sum - root.val) or self.dfs(root.right, sum - root.val)
+        elif root.left:
+            return self.dfs(root.left, sum - root.val)
+        elif root.right:
+            return self.dfs(root.right, sum - root.val)
+        if root and root.left is None and root.right is None:
+            return sum == root.val
+            
 
     ## BFS
 	def hasPathSum3(self, root, sumN):

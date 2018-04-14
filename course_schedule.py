@@ -1,55 +1,36 @@
 class Solution(object):
-    def canFinish(self, numCourses, prerequisites):
-        graph = [[] for _ in range(numCourses)]
-        visit = [0 for _ in range(numCourses)]
 
-        for pair in prerequisites:
-            x, y = pair
-            graph[x].append(y)
 
-        for i in range(numCourses):
-            if not self.dfs(graph, visited, i):
-                return False
-        return True
 
-    def dfs(self, graph, visited, i):
-        if visited[i] == -1:
-            return False
-        if visited[i] == 1:
-            return True
-        visited[i] = -1
-        for j in graph[i]:
-            if not self.dfs(graph, visited, j):
-                return False
-
-        visited[i] = 1
-        
-        return True
-## The topological sort is natural for this problem. We always take the courses with no unstudied prereqs and so on until no more courses we can take. The oud[i] is the number of prereqs for course i and indegree keep a list of courses require course i.
     def canFinish(self, numCourses, prerequisites):
         """
         :type numCourses: int
         :type prerequisites: List[List[int]]
         :rtype: bool
         """
-        in_degree = [0]*numCourses
-        out_degree = [[] for _ in range(numCourses)]
-        for p in prerequisites:
-            in_degree[p[0]]+=1
-            out_degree[p[1]].append(p[0])
-        q = []
+        graph = {}
+        visited = [0 for _ in range(numCourses)]
+        
+        for x, y in prerequisites:
+            graph[x] = graph.get(x, []) + [y]
+        
         for i in range(numCourses):
-            if in_degree[i]==0:
-                q.append(i)
-        k = 0
-        while q:
-            x = q.pop()
-            k+=1
-            for i in out_degree[x]:
-                in_degree[i]-=1
-                if in_degree[i] == 0:
-                    q.append(i)
-        return k == numCourses
+            if not self.dfs(graph, visited, i):
+                return False
+        return True
+    
+    def dfs(self, graph, visited, i):
+        if visited[i]==-1:
+            return False
+        if visited[i]==1:
+            return True
+        visited[i]=-1
+        for j in graph.get(i,[]):                     ## **
+            if not self.dfs(graph, visited, j):       ## **
+                return False                          ## **
+        visited[i]=1
+        return True
+
 
 
 ## topological sort
@@ -74,6 +55,28 @@ class Solution(object):
 
 
 
+import collections
+
+class Solution(object):
+    def canFinish(self, numCourses, prerequisites):
+        out_degree = [[] for i in range(numCourses)]
+        in_degree = [0]*numCourses
+        for p in prerequisites:
+            in_degree[p[0]]+=1
+            out_degree[p[1]].append(p[0])
+        dp=deque()
+        for i in range(n):
+            if in_degree[i] == 0:
+                dq.append(i)
+        k=0
+        while dq:
+            x = dq.popleft()
+            k+=1
+            for i in out_degree[x]:
+                in_degree[i]-=1
+                if in_degree[i] == 0:
+                    dq.append(i)
+        return k == n
 
 
 1. if node v has not been visited, then mark it as 0.

@@ -19,6 +19,8 @@ class Solution(object):
 			res+= 1
 		return res
 
+
+## DFS for the graph, so needs the visited 
 	def findCircleNum2(self, M):
 		"""
 		:type M: List[List[int]]
@@ -39,6 +41,29 @@ class Solution(object):
 			dfs(M, i, n, visited)
 			ans+=1
 		return ans
+
+	def findCircleNum(self, M):
+        """
+        :type M: List[List[int]]
+        :rtype: int
+        """
+        count = 0
+        n = len(M)
+        people = [0]*n
+            
+        def dfs(i):
+            people[i]=1
+            for j in range(n):
+                if M[i][j] ==1 and people[j]==0:
+                    people[j]=1
+                    dfs(j)
+                    ## be careful with the exit condition
+        
+        for i in range(n):
+            if people[i]==0:
+                count+=1
+                dfs(i)
+        return count
 
 
 ## the important difference is that we need to check all friends instead of the direct neighbors

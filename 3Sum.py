@@ -1,4 +1,7 @@
 #sort the list so that we only need to loop the list once later
+#one important part is to avoid duplicate
+#O(n^2) O(1)
+
 
 class Solution(object):
     def threeSum(self, nums):

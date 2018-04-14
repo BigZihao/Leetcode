@@ -1,3 +1,5 @@
+## O(m * n * l) O(l)
+
 class Solution(object):
     def exist(self, board, word):
         """

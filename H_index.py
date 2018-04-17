@@ -3,7 +3,14 @@
 
 ## counting sort 
 
-##H-index is at most the number of papers, which is len(citations) . keep a list of length len(citations)+1, and at each index i, record the number of papers with citations exactly i (except for the last index, which records number of papers with citations >= i). After constructing such list, scan the list from the back, maintain the sum of all encountered number. The sum means how many paper with citation >= the index. If sum>= index, then the index is the h-index.
+##H-index is at most the number of papers, which is len(citations) . 
+# keep a list of length len(citations)+1, and at each index i, 
+# record the number of papers with citations exactly i 
+# (except for the last index, which records number of papers with citations >= i). 
+# After constructing such list, scan the list from the back, 
+# maintain the sum of all encountered number. 
+# The sum means how many paper with citation >= the index. 
+# If sum>= index, then the index is the h-index.
 
 def hIndex(self, citations):
     stat = [0]*(len(citations)+1)
@@ -26,7 +33,7 @@ def hIndex(self, citations):
 	citations.sort()
 	n = len(citations)
 	for i in range(n):
-		if citations[i] > (n-i):
+		if citations[i] >= (n-i):
 			return n - i
 	return 0
 

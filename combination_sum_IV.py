@@ -23,6 +23,7 @@ class Solution(object):
 
 
 ## when we only care about number, it can be reduce to a simpler problem
+## become basically the coin change probelm
     def combinationSum2(self, nums, target):
         nums.sort()
         dp = [0]*(target + 1)

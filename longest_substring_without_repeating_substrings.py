@@ -27,5 +27,25 @@ class Solution(object):
 		# non-repeated substring
 		return max(res, len(s) - start)
 
+
+    def lengthOfLongestSubstring3(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        dic = {}
+        res = ''
+        start = 0
+        for i, string in enumerate(s):
+            if string not in dic or dic[string]<start:
+                res = max(res, s[start:i+1], key = len)
+            else:
+                start= dic[string] + 1
+            dic[string] = i    ############
+        print(res)
+        return len(res)
+
+
+        
 if __name__ == "__main__":
 	assert Solution().LengthOfLongestSubstring('bbbbbbbb')==1

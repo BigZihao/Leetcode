@@ -13,3 +13,14 @@ class Solution(object):
 		_sum(root)
 		return self.ans
 
+	def findTilt(self, root):
+		if not root:
+			return 0
+		def csum(root):
+			if not root:
+				return 0
+			return root.val + csum(root.left) + csum(root.right)
+		return abs(csum(root.left) - csum(root.right)) + self.findTilt(root.left) + self.findTilt(root.right)
+
+	
+

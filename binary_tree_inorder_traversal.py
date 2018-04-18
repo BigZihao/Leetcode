@@ -10,6 +10,26 @@ class Solution(object):
             res.append(root.val)
             self.helper(root.right, res)
 
+
+    def inorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        stack = []
+        res = []
+        while root:
+            stack.append(root)
+            root = root.left
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+            x = node.right
+            while x:
+                stack.append(x)
+                x = x.left
+        return res
+
     ## iteratively
     def inorderTraversal2(self, root):
         res, stack = [], []

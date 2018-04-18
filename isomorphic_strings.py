@@ -6,6 +6,7 @@ class Solution(object):
 			d1[val] = d1.get(val, []) + [i]
 		for i, val in enumerate(t):
 			d2[val] = d2.get(val, []) + [i]
+			## store the position of every values
 		return sorted(d1.values()) == sorted(d2.values())
 
 	def isIsomorphic2(self, s, t):

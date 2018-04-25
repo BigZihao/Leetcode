@@ -14,7 +14,7 @@ def numTrees(self, n):
 
 	for i in range(1, n + 1):
 		for j in range(0, i): ## how many left node have
-			count[i]+=count[j]*count[i-j-1]
+			count[i]+=count[j]*count[(i-1)-j]
 	return count[n]
 
 

@@ -7,6 +7,25 @@
 
 class Solution(object):
 
+
+   # DFS
+    def permute3(self, nums):
+        res = []
+        self.dfs(nums, [], res)
+        return res
+
+    def dfs(self, nums, path, res):
+        if not nums:
+            res.append(path)
+            print(res)
+        for i in range(len(nums)):
+            self.dfs(nums[:i] + nums[i+1:], path + [nums[i]], res)
+
+
+
+
+
+            
     # recursion
     # Take any number as the first number and append any permutation of the other numbers.
     def permute(self, nums):
@@ -32,18 +51,7 @@ class Solution(object):
         return reduce(lambda P, n: [p[:i] + [n] +p[i:] 
             for p in P for i in range(len(p)+1)], nums, [[]])
 
-    # DFS
-    def permute3(self, nums):
-        res = []
-        self.dfs(nums, [], res)
-        return res
-
-    def dfs(self, nums, path, res):
-        if not nums:
-            res.append(path)
-            print(res)
-        for i in range(len(nums)):
-            self.dfs(nums[:i] + nums[i+1:], path + [nums[i]], res)
+ 
 
 ## first time: i == 0 pint to 1, nums = [2, 3], recursively call dfs again, gives i == 0  point to 2, then nums = [3]
             

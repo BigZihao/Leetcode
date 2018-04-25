@@ -13,6 +13,8 @@
 # can use repeated number 
 
 
+###   time complexity:   O(n!)~O(2^n)
+
 class Solution(object):
     def combinationSum(self, candidates, target):
         res = []

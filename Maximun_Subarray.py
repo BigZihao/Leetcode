@@ -1,3 +1,5 @@
+### O(n) time, O(1) space
+### compare max(nums[i]+cur, nums[i])
 
 
 class Solution(object):

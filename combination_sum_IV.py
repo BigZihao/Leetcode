@@ -1,5 +1,7 @@
 class Solution(object):
 
+    # DFS is O(2^n)
+    # with backtracking, DFS is O(n!)~O(2^n)
     # DFS solution can only handle small cases(i.e.target<=25 && len(nums)<=5), due to large list memory usage of res.
     def combinationSum4(self, nums, target):
         """
@@ -24,6 +26,7 @@ class Solution(object):
 
 ## when we only care about number, it can be reduce to a simpler problem
 ## become basically the coin change probelm
+## O(nlogn + target*n)
     def combinationSum2(self, nums, target):
         nums.sort()
         dp = [0]*(target + 1)

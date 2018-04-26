@@ -51,6 +51,18 @@ class Solution():
         for i in xrange(index, len(nums)):
             self.dfs(nums, k-1, i+1, path+[nums[i]], res)
 
+## actually this works as well, but the above one is significantly faster
+## from this point of view, combination is just a special case of subset
+## but since its special case, we can prune the search path and increase the efficiency
+## this is called backtracking
+## its backtracking within DFS search
+
+    def dfs(self, nums, k, index, path, res):
+    	if k == 0:
+            res.append(path)
+        for i in xrange(index, len(nums)):
+            self.dfs(nums, k-1, i+1, path+[nums[i]], res)
+
 
             
 

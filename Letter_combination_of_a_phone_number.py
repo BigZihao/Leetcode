@@ -1,6 +1,7 @@
 class Solutions(object):
 	def LetterCombinations(self, digits):
 
+DFS + backtracking
 		## time complexity O(4^n)
 		def dfs(num, string, res):
 			if num == length:
@@ -27,6 +28,36 @@ class Solutions(object):
         dfs(0, '', res)
         return res
 
+## BFS + iterative
+
+    def letterCombinations(self, digits):
+        """
+        :type digits: str
+        :rtype: List[str]
+        """
+        
+        if not len(digits):
+            return []
+  
+        phones = {"1":"" , "2":"abc" , "3":"def" , "4":"ghi" , "5":"jkl" , "6":"mno" , "7":"pqrs" , "8":"tuv" , "9":"wxyz"}
+            
+        results = []
+        results.append("")
+        
+        if not digits.isdigit():
+            return results
+            
+        for digit in digits:
+            if digit == "1":
+                continue
+            word = phones[digit]
+            temp = []
+            for alphabet in word:
+                for result in results:
+                    temp.append(result+alphabet)
+            results = temp
+        
+        return results
 
     def letterCombinations(self, digits):
         mapping = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', 

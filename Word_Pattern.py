@@ -1,3 +1,5 @@
+热手题，对于 bijection mapping 就是两个 hashmap 互相查，和 Isomorphic Strings 一样。
+
 class Solution(object):
 	def wordPattern(self, pattern, str):
 		str = str.split(" ")

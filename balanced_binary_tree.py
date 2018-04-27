@@ -1,4 +1,4 @@
-class Solution(object):
+liclass Solution(object):
     def isBalanced(self, root):
 
         def check(root):

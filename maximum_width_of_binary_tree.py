@@ -1,4 +1,7 @@
 class Solution(object):
+
+## width has a relation with levels/depth
+
 	def widthOfBinaryTree(self, root):
 		if not root:
 			return 0

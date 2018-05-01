@@ -1,3 +1,4 @@
+
 Search
 Tree and BackTracking 
 
@@ -48,6 +49,28 @@ def dfs(self, root, ls, res):
     if root.right:
         self.dfs(root.right, ls+str(root.val)+"->", res)
 
+
+1.3 generate parenthesis
+
+too trivial. 这题和二叉树其实挺像的，因为在每一个位置都只有两种可能 "(" 和 ")".
+
+def generateParethesis(self, n):
+    if not n:
+        return []
+    left, right, res = n, n, []
+    self.dfs(left, right, "", res)
+def dfs(self, left, right, path, res):
+    if right<left:
+        return
+    if not left and not right:
+        res.append(path)
+    if left:
+        self.dfs(left-1, right, path+"(", res)
+    if right:
+        self.dfs(left, right-1, path+")", res)
+
+
+
 2. DFS in general search path "tree"
 
 class Permutation():
@@ -63,3 +86,10 @@ class Permutation():
             print(res)
         for i in range(len(nums)):
             self.dfs(nums[:i] + nums[i+1:], path + [nums[i]], res)
+
+
+
+
+
+
+            

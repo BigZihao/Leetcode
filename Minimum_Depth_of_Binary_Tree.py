@@ -1,4 +1,5 @@
 class Solution(object):
+## DFS + recrusion
 	def minDepth1(self, root):
 		if not root:
 			return 0
@@ -21,3 +22,4 @@ class Solution(object):
 				else:
 					queue.append((node.left, level+1))
 					queue.append((node.right, level+1))
+

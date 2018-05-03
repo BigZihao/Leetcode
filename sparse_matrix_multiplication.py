@@ -10,3 +10,7 @@ class Solution(object):
 						res[i][k]+ = A[i][j]*B[j][k]
 
 		return res
+
+# time m*n*nB
+# space m*nB
+

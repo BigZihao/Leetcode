@@ -2,6 +2,11 @@
 class Solution(object):
 
 # 时间复杂度: O(n^2 ~ n^3) 空间复杂度 O(n)
+# state dp[i+1] s[:i] can be represeted by one or more word from wordDict
+# init dp[0] is True
+# func dp[i] = dp[j] and s[j:i+1] in wordDict for j in range(i)
+# restl dp[n+1]
+
 
 	def wordBreak(self, s, wordDict):
 		"""

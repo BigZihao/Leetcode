@@ -1,4 +1,7 @@
 class Solution(object):
+
+Binary search problem 
+
 	def mySqrt(self, x):
 		l, r = 0, x
 		while l<=r:
@@ -15,3 +18,16 @@ class Solution(object):
 		while r*r > x:
 			r = (r + x/r)/2
 		return r
+
+
+	## binary search idea
+	def firstBadVersion(self, n):
+		i=1
+		j=n
+		while i<j:
+			k = (i+j)/2
+			if isBadVersion(k):
+				j=k
+			else:
+				i=k+1
+		return i

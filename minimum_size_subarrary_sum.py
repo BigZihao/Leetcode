@@ -1,4 +1,4 @@
-class Solutions(object):
+ class Solutions(object):
 	def minSubArrayLen(self, s, nums):
 		total = left = 0
 		result = len(nums) + 1

@@ -26,6 +26,7 @@ class Solution(object):
 				x0 = x1
 		return x1
 
+## search in rotated array
 
 	def Search(self, nums, target):
 		"""

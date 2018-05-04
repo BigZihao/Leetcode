@@ -13,12 +13,13 @@ class Solution(object):
 		alph = ''.join(map(chr, range(65, 91)))
 		return (self.converToTitle((num-1)/len(alph)) if num>len(alph) else '') + alph[int((num-1)%len(alph))]
 
-### Conversion from 10-ary numbers to 26-ary numbers. The tricky part is the lack of the equivalent number '0' in the 26-ary system.
+### Conversion from 10-ary numbers to 26-ary numbers. 
+# The tricky part is the lack of the equivalent number '0' in the 26-ary system.
 	def converToTitle4(self, num):
 		res = ''
 		while num:
 			num, r = divmod(num - 1, 26)
-			res = chr(r+65) + res
+			res = chr(r+ord('A')) + res
 		return res
 
 	def converToTitle5(self, num):

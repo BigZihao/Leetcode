@@ -14,7 +14,7 @@ subtree min/max (int);
 3. convert BST to greater tree
 4. dimeter of Binary tree
 5. binary tree tilt
-
+6. validate BST
 
 
 0. subtree of another tree
@@ -111,4 +111,10 @@ def BinaryTreeTilt(self, root):
 	_sum(root)
 	return self.ans
 
-6. 
+6. validate BST
+	def isValidBST2(self, root, lessThan = float('inf'), largerThan = float('-inf')):
+		if not root:
+			return True
+		if root.val <= largerThan or root.val >= lessThan:
+			return False 
+		return self.isValidBST2(root.left, min(lessThan, root.val), largerThan) and self.isValidBST2(root.right, lessThan, max(root.val, largerThan))

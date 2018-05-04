@@ -15,3 +15,8 @@ class Solution(object):
 		while r*r > x:
 			r = (r + x/r)/2
 		return r
+
+
+
+f(x) = S - x^2
+X_(n+1) = X_(n) - f(x)/f'(x)

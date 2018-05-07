@@ -10,6 +10,8 @@
 #We don't need to swap because we know the values we want.
 
 
+## two pointer
+
 def sortColors(self, nums):
     i = j = 0
     for k in xrange(len(nums)):

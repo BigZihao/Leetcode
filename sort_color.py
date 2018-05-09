@@ -23,6 +23,9 @@ def sortColors(self, nums):
             i += 1
 
 
+The most important part is only the two index, i and j
+once i j are set, just change the number between them
+
 
 This is a dutch partitioning problem. We are classifying the array into four groups: red, white, unclassified, and blue. Initially we group all elements into unclassified. We iterate from the beginning as long as the white pointer is less than the blue pointer.
 

@@ -52,15 +52,20 @@ def lowestCommonAncestor(self, root, p, q):
 
 
 def lowestCommonAncestor(self, root, p, q):
+    
+## edge condition
     if root is None:
         return root
 
     if root == p or root == q:
         return root
 
+## divide
     left = self.lowestCommonAncestor(root.left, p, q)
     right = self.lowestCommonAncestor(root.right, p, q)
 
+
+## conquer 
     if left is not None and right is not None:
         return root
     elif left is not None:

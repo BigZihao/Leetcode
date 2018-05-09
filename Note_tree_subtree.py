@@ -15,7 +15,11 @@ subtree min/max (int);
 4. dimeter of Binary tree
 5. binary tree tilt
 6. validate BST
+<<<<<<< HEAD
 7. sum of lest leaves
+=======
+7. sum of left leafs
+>>>>>>> 1c46f0370df20b137bec7e0b611b48fdb5c01a9a
 
 
 0. subtree of another tree
@@ -83,7 +87,7 @@ def convertBST(self, root):
 		return cur_sum
 
 	convertBSTHelper(root, 0)
-		return root
+	return root
 
 4. dimeter of binary tree
 
@@ -121,8 +125,12 @@ def BinaryTreeTilt(self, root):
 		return self.isValidBST2(root.left, min(lessThan, root.val), largerThan) and self.isValidBST2(root.right, lessThan, max(root.val, largerThan))
 
 
+<<<<<<< HEAD
 
 7. sum of left leaves
+=======
+7. sum of left leafs
+>>>>>>> 1c46f0370df20b137bec7e0b611b48fdb5c01a9a
 
     def sumOfLeftLeaves3(self, root):
         sum = 0
@@ -131,4 +139,24 @@ def BinaryTreeTilt(self, root):
         if root.left and not root.left.left and not root.left.right:
             sum+=root.left.val
         sum+= self.sumOfLeftLeaves3(root.left) + self.sumOfLeftLeaves3(root.right)
+<<<<<<< HEAD
         return sum
+=======
+        return sum
+
+# or just iterate through the tree using DFS staskc
+
+
+def sumOFleftLeaves(self, root):
+	stack = [root]
+	res = 0
+	while stack:
+		node = stakc.pop()
+		if node.left and not node.left.right and not node.left.left:
+			res+=node.left.val
+		if node.left:
+			stack.append(node.left)
+		if node.right:
+			stack.append(node.right)
+    return res
+>>>>>>> 1c46f0370df20b137bec7e0b611b48fdb5c01a9a

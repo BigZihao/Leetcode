@@ -20,6 +20,6 @@ class Solution(object):
 
 	## recursion
 	def lowestCommonAncestor2(self, root, p, q):
-		if (p.val <= root.val <= q.val or q.val <= root.val <= p.val): return root.val
+		if (p.val <= root.val <= q.val or q.val <= root.val <= p.val): return root
 		if (p.val < root.val and q.val < root.val): return self.lowestCommonAncestor2(root.left, p, q)
 		if (p.val > root.val and q.val > root.val): return self.lowestCommonAncestor2(root.right, p, q)

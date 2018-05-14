@@ -8,6 +8,14 @@ subtree min/max (int);
 这种递归结构中先处理完 left / right 再来汇总结果的，其实就是 post-order traversal. 
 这点在 search 类 dfs 中也很常见，比如安卓解锁，数解锁方式数量的做法。
 
+
+top-down  preorder
+bottom-up   postorder
+
+
+
+
+
 0. subtree of another tree
 1. same tree
 2. Symetric tree
@@ -15,11 +23,8 @@ subtree min/max (int);
 4. dimeter of Binary tree
 5. binary tree tilt
 6. validate BST
-<<<<<<< HEAD
 7. sum of lest leaves
-=======
-7. sum of left leafs
->>>>>>> 1c46f0370df20b137bec7e0b611b48fdb5c01a9a
+
 
 
 0. subtree of another tree

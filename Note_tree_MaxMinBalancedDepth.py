@@ -12,6 +12,31 @@ recursively
 def maxDepth(self, root):
     return 1 + max(map(self.maxDepth, (root.left, root.right))) if root else 0
 
+
+top-down
+def maxDepth(self, root):
+    def depth(root, d):
+        if root:
+            self.res = max(self.res, d)
+            depth(root.left, d+1)
+            depth(root.right, d+1)
+    self.res = 0
+    depth(root, 1)
+    return self.res
+bottom up
+def maxDepth(self, root):
+    def depth(root):
+        if root:
+            left = depth(root.left)
+            right = depth(root.right)
+            return max(left, right) + 1
+        else:
+            return 0
+    res = depth(root)
+    return res
+
+
+
 2. Minimum depth of tree
 
 def minDepth(self, root):

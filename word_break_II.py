@@ -1,5 +1,43 @@
 
 
+wordbreak II is dp + dfs
+class Solution(object):
+    def wordBreak(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: List[str]
+        """
+        res = []
+        self.dfs(s, wordDict, '', res)
+        return res
+    
+    def check(self, s, wordDict):
+        n = len(s)
+        dp = [False] * (n + 1)
+        dp[0] = True
+        for i in range(n):
+            for j in range(i, -1, -1):
+                if dp[j] and s[j:i+1] in wordDict:
+                    dp[i + 1] = True
+                    break ### saves more time 
+        return dp[n]
+    
+    def dfs(self, s, wordDict, path, res):
+        if self.check(s, wordDict):
+            if len(s) == 0:
+                res.append(path[1:])
+            for i in range(1, len(s) + 1):
+                if s[:i] in wordDict:
+                    self.dfs(s[i:], wordDict, path + ' ' + s[:i], res)
+
+
+
+
+
+
+                    
+
 class Solution(object):
     def wordBreak(self, s, wordDict):
         return self.helper(s, wordDict, {})
@@ -52,3 +90,4 @@ class Solution(object):
             return res
         
         return helper(s)
+ 

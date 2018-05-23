@@ -7,7 +7,7 @@ class Solution():
 		u, d, l, r = 0, n-1, 0, m-1
 		while u<d and l<r:
 			ans+=[matrix[u][j] for j in range(l, r)]
-			ans+=[matirx[i][r] for r in range(u, d)]
+			ans+=[matirx[i][r] for i in range(u, d)]
 			ans+=[matrix[d][j] for j in range(r, l, -1)]
 			ans+=[matrix[i][l] for i in range(d, u, -1)]
 			u, d, l, r = u+1, d-1, l+1, r-1

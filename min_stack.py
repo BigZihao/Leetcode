@@ -25,12 +25,12 @@ class MinStack(object):
 			return self.q[len(self.q) - 1][1]
 
 if __name__ == "__main__":
-	MinStack minStack = new MinStack();
+	minStack = MinStack();
 	minStack.push(-2);
 	minStack.push(0);
 	minStack.push(-3);
 	minStack.getMin();   
-	minStack.pop();
-	minStack.top();      
-	minStack.getMin();   
+	print(minStack.pop());
+	print(minStack.top());      
+	print(minStack.getMin());   
 

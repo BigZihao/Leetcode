@@ -12,8 +12,8 @@ class Solution(object):
 					return False
 				if board[r][c] in col[c]:
 					return False
-
-				g = r/3*3 + c/3
+					
+                g = int(r/3)*3 + int(c/3)
 				if board[r][c] in grid[g]:
 					return False
 				grid[g].add(board[r][c])
@@ -21,3 +21,4 @@ class Solution(object):
 				col[c].add(board[r][c])
 		return True
 
+    

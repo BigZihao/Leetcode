@@ -40,3 +40,8 @@ class NestedIterator(object):
 
 
 
+if __name__ == '__main__':
+	nestedList = [1,[4,[6]]]
+	i, v = NestedIterator(nestedList), []
+	while i.hasNext(): 
+		v.append(i.next())

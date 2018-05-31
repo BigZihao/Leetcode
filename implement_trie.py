@@ -1,23 +1,22 @@
 # Trie
 # Add and Search Word - Data structure design
 
-class TrieNode:
+class TrieNode():
 	def __init__(self):
 		self.children = {}
 		self.is_word = False
 
-
-class Trie:
+class Trie():
 	def __init__(self):
 		self.root = TrieNode()
 
 	def insert(self, word):
-        current = self.root
-        for letter in word:
-            if letter not in current.children:
-                current.children[letter] = TrieNode()
-            current = current.children[letter]
-        current.is_word = True
+		current = self.root
+		for letter in word:
+			if letter not in current.children:
+				current.children[letter] = TrieNode()
+			current = current.children[letter]
+		current.is_word = True
 
 	def search(self, word):
 		current = self.root
@@ -34,4 +33,6 @@ class Trie:
 			if current is None:
 				return False
 		return True
+
+
 

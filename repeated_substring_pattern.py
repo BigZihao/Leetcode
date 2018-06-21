@@ -1,8 +1,11 @@
-class solutions(object):
-	def repeatedStringMatch(self, A, B):
-		C = ""
-		for i in range(int(len(B)/len(A)) + 3):
-			if B in C:
-				return i
-			C+=A
-		return -1
+class Solution(object):
+    def repeatedSubstringPattern(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        if not str:
+            return False
+            
+        ss = (s + s)[1:-1]
+        return s in ss

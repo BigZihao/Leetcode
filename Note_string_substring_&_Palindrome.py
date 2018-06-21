@@ -7,3 +7,58 @@ string
 
 longest substring without repeating substring
 hashtable + sliding window
+
+keep two pinter, start and end, and also keep a number of lastcount
+def countBinarySubstring(self, s):
+	n = len(s)
+	res = 0
+	start = 0
+	lastcount = 1
+	for i in range(1, n):
+		if s[i]!=s[i-1]:
+			res+=1
+			lastcount = i-start
+			start = i
+		else:
+			if i-start<lastcount:
+				res+=1
+	return res
+
+
+def repeatedSubstringPattern(self, s):
+    """
+    :type s: str
+    :rtype: bool
+    """
+    if not str:
+        return False
+        
+    ss = (s + s)[1:-1]
+    return s in ss
+
+Find all anagrams in a string 
+
+
+def findAnagrams(self, s, p):
+    """
+    :type s: str
+    :type p: str
+    :rtype: List[int]
+    """
+    start = 0
+    dics = {}
+    dicp = {}
+    res = []
+    lp= len(p)
+    for i in p:
+        dicp[i] = dicp.get(i, 0) +1
+    for i, string in enumerate(s):
+        if i+1-start>lp:
+            dics[s[start]]-=1
+            if dics[s[start]] == 0:
+                del dics[s[start]]
+            start+=1
+        dics[string] = dics.get(string, 0) + 1
+        if dics == dicp:
+            res.append(start)
+    return res

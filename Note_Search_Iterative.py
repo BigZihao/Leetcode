@@ -28,6 +28,8 @@ def binaryTreePaths1(self, root):
             stack.append((node.left, ls+str(node.val)+"->"))
     return res
     
+
+
 # bfs + queue
 def binaryTreePaths2(self, root):
     if not root:
